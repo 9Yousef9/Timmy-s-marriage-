@@ -3,50 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عقد زواج - يوسف وتيمي</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <title>نموذج عقد زواج شرعي</title>
     <style>
         :root {
-            --gold: #d4af37;
-            --gold-light: #f3e5ab;
-            --dark-gold: #aa820a;
-            --bg-color: #faf8f5;
-            --text-dark: #2c2c2c;
+            --primary-color: #2c3e50;
+            --accent-color: #d4af37;
+            --bg-color: #f9f9f6;
+            --text-color: #333;
         }
 
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
-            font-family: 'Amiri', serif;
+            color: var(--text-color);
             margin: 0;
-            padding: 30px 10px;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            color: var(--text-dark);
         }
 
-        /* الكارت الرئيسي للعقد بشكل القوس */
         .contract-card {
             background: #ffffff;
+            border: 3px double var(--accent-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
             width: 100%;
-            max-width: 550px;
-            padding: 50px 30px 40px 30px;
+            padding: 40px;
             box-sizing: border-box;
-            border-radius: 250px 250px 20px 20px; /* شكل القوس العلوي */
-            border: 3px solid var(--gold);
-            outline: 2px solid var(--gold-light);
-            outline-offset: -8px;
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
-            text-align: center;
-            position: relative;
         }
 
-        /* البسمة والآية القرآنية */
-        .basmala {
-            font-family: 'Aref Ruqaa', serif;
-            font-size: 22px;
-            color:
+        .header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            margin: 5px 0;
+            font-size: 28px;
+        }
+
+        .header p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        input[type="text"], input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: var(--accent-color);
+            border-right: 4px solid var(--accent-color);
+            padding-right: 10px;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 2px solid var(--accent-color);
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1a252f;
+        }
+
+        @media (max-width: 600px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="contract-card">
+    <div class="header">
+        <h1>عقد زواج شرعي</h1>
+        <p>بسم الله الرحمن الرحيم</p>
+    </div>
+
+    <form id="marriageForm">
+        <div class="section-title">بيانات الطرفين</div>
+        
+        <div class="grid-2">
+            <div class="form-group">
+                <label for="husbandName">اسم الزوج الكامل:</label>
+                <input type="text" id="husbandName" required placeholder="أدخل اسم الزوج">
+            </div>
+            <div class="form-group">
+                <label for="wifeName">اسم الزوجة الكامل:</label>
+                <input type="text" id="wifeName" required placeholder="أدخل اسم الزوجة">
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label for="husbandID">رقم الهوية / الباسبور (الزوج):</label>
+                <input type="text" id="husbandID" required>
+            </div>
+            <div class="form-group">
+                <label for="wifeID">رقم الهوية / الباسبور (الزوجة):</label>
+                <input type="text" id="wifeID" required>
+            </div>
+        </div>
+
+        <div class="section-title">تفاصيل العقد والمهر</div>
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label for="dowryAdvanced">المهر المقدم:</label>
+                <input type="text" id="dowryAdvanced" placeholder="المبلغ المسمى بينهما">
+            </div>
+            <div class="form-group">
+                <label for="dowryDeferred">المهر المؤجل:</label>
+                <input type="text" id="dowryDeferred" placeholder="المؤخر">
+            </div>
+        </div>
+
+        <div class="section-title">الشهود والتاريخ</div>
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label for="witness1">اسم الشاهد الأول:</label>
+                <input type="text" id="witness1" required>
+            </div>
+            <div class="form-group">
+                <label for="witness2">اسم الشاهد الثاني:</label>
+                <input type="text" id="witness2" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="contractDate">تاريخ إبرام العقد:</label>
+            <input type="date" id="contractDate" required>
+        </div>
+
+        <button type="submit" class="submit-btn">حفظ العقد وطباعته</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('marriageForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('تم حفظ البيانات بنجاح! يمكنك الآن طباعة العقد.');
+        window.print();
+    });
+</script>
+
+</body>
+</html>
